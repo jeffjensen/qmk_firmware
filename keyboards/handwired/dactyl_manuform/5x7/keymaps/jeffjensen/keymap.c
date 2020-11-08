@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 
-
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
@@ -21,40 +20,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_5x7(
   // left hand
     KC_EQL,         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_ESC,
-    KC_PGUP,        KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(_FN_LCRM),
-    KC_PGDN,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_TAB,
-    OSM(MOD_LSFT),  KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,
-    _______,        KC_GRV,         KC_LEFT,        KC_RGHT,
-                                                                KC_BSPC,        KC_LCTL,
-                                                                KC_DEL,         LT(_FN_LMRC, KC_HOME),
-                                                                KC_LALT,        KC_END,
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           TT(_FN_LCRM),
+    KC_CAPS,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_TAB,
+    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,
+    KC_SPC,         KC_GRV,         KC_LEFT,        KC_RGHT,
+                                                                KC_LCTL,        KC_BSPC,
+                                                                KC_LALT,        KC_HOME,
+                                                                KC_DEL,         KC_END,
+
+                                                                // KC_LCTL,        KC_BSPC,
+                                                                // KC_HOME,        KC_END,
+                                                                // KC_DEL,         KC_LALT,
+
+                                                                // KC_BSPC,        KC_LCTL,
+                                                                // KC_DEL,         LT(_FN_LMRC, KC_HOME),
+                                                                // KC_LALT,        KC_END,
   // right hand
     TG(_NUMPAD),    KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINS,
     TT(_FN_LCRM),   KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     KC_ENT,         KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOT,
-                    KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        OSM(MOD_RSFT),
+                    KC_N,           KC_M,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_RSHIFT,
                                                     KC_UP,          KC_DOWN,        KC_LBRC,        KC_RBRC,
-            KC_RCTL,         KC_SPC,
-            _______,         _______,
-            KC_CAPS,         KC_RWIN
+            KC_SPC,          KC_RCTL,
+            KC_PGUP,         KC_RWIN,
+            KC_PGDN,         KC_PGUP
+
+            // KC_RCTL,         KC_SPC,
+            // KC_PGDN,         KC_PGUP,
+            // KC_CAPS,         KC_RWIN
 ),
 
 [_FN_LCRM] = LAYOUT_5x7(
   // left hand
     _______,        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          _______,
-    _______,        _______,        KC_HOME,        KC_UP,          KC_END,         _______,        _______,
-    _______,        KC_PGUP,        KC_LEFT,        KC_DOWN,        KC_RGHT,        LCTL(KC_A),     _______,
-    _______,        KC_PGDN,        KC_CUT,         KC_COPY,        KC_PASTE,       _______,
-    _______,        _______,        _______,        _______,
-                                                                KC_DEL,         _______,
+    _______,        KC_PGUP,        KC_HOME,        KC_UP,          KC_END,         _______,        _______,
+    _______,        KC_PGDN,        KC_LEFT,        KC_DOWN,        KC_RGHT,        LCTL(KC_A),     _______,
+    _______,        KC_PSCR,        KC_INS,         KC_SLCK,        _______,        _______,
+    _______,        _______,        KC_WH_L,        KC_WH_R,
+                                                                _______,        KC_DEL,
                                                                 _______,        _______,
-                                                                _______,        _______,
+                                                                _______,        KC_BRK,
   // right hand
     _______,        KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     _______,        _______,        KC_WH_L,        KC_MS_U,        KC_WH_R,        _______,        KC_F12,
     _______,        _______,        KC_MS_L,        KC_MS_D,        KC_MS_R,        _______,        _______,
                     _______,        KC_BTN1,        KC_BTN2,        KC_BTN3,        _______,        _______,
-                                                    KC_WH_D,        KC_WH_U,        _______,        _______,
+                                                    KC_WH_U,        KC_WH_D,        _______,        _______,
             _______,        _______,
             _______,        _______,
             _______,        _______
